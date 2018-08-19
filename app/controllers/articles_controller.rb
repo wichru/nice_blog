@@ -12,6 +12,10 @@ class ArticlesController < ApplicationController
     @article = Article.new(article_params)
     @article.save
 
-    redirect_to articles_path
+    redirect_to @article
+  end
+
+  def show
+    @article = Article.find(params[:id])
   end
 end
