@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class ArticlesController < ApplicationController
-  before_action :provide_article, only: [:show, :edit, :update, :destroy]
+  before_action :provide_article, only: %i[show edit update destroy]
 
   def index
     @articles = Article.all.order(created_at: :desc)
@@ -19,11 +21,9 @@ class ArticlesController < ApplicationController
     end
   end
 
-  def show
-  end
+  def show; end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @article.update(article_params)
