@@ -1,3 +1,5 @@
+<%= render 'errors', resource: @comment %>
+
 <%= form_for [@article, @comment] do |f| %>
   <p>
     <%= f.label :commenter %>
