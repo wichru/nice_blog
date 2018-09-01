@@ -10,18 +10,7 @@
 </p>
 
 <h3>Add comment</h3>
+<%= render 'comments/form' %>
 
-<%= form_for @comment do |f| %>
-  <%= f.hidden_field :article_id %>
-  <p>
-    <%= f.label :commenter %>
-    <%= f.text_field :commenter %>
-  </p>
-  <p>
-    <%= f.label :body %>
-    <%= f.text_area :body %>
-  </p>
-  <p>
-    <%= f.submit =%>
-  </p>
-<% end %>
+<h2>Comments</h2>
+<%= render @article.comments %>

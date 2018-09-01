@@ -1,7 +1,11 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   root 'welcome#index'
 
-  resources :articles
+  resources :articles do
+    resources :comments, only: [:create]
+  end
   # zamiast resources może być
   # get 'articles', to: 'articles#index'
   # get 'articles/new', to: 'articles#new', as: 'new_article'
@@ -10,5 +14,4 @@ Rails.application.routes.draw do
   # post 'articles', to: 'articles#create'
   # patch 'articles/:id', to: 'articles#update'
   # delete 'articles/:id', to: 'articles#destroy'
-  resources :comments
 end
