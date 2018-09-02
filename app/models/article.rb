@@ -5,4 +5,18 @@ class Article < ApplicationRecord
   validates :text, presence: true, length: { maximum: 200 }
 
   has_many :comments, dependent: :destroy
+
+  def tags=(obj)
+    if obj.is_a?(String)
+      super sanitize_tags(obj)
+    else
+      super
+    end
+  end
+
+  private
+
+  def sanitize_tags(text)
+    text.split.map(&:downcase).uniq
+  end
 end
