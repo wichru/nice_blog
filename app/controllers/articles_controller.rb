@@ -5,6 +5,8 @@ class ArticlesController < ApplicationController
 
   def index
     @articles = Article.all.order(created_at: :desc)
+
+    @articles = @articles.where('? = any(tags)', params[:q]) if params[:q].present?
   end
 
   def new
