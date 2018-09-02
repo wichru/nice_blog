@@ -1,15 +1,15 @@
 <%= render 'errors', resource: @comment %>
 
 <%= form_for [@article, @comment] do |f| %>
-  <p>
+  <div class: 'form-group'>
     <%= f.label :commenter %>
-    <%= f.text_field :commenter %>
+    <%= f.text_field :commenter, class: 'form-control' %>
   </p>
-  <p>
+  <div class: 'form-group'>
     <%= f.label :body %>
-    <%= f.text_area :body %>
+    <%= f.text_area :body, class: 'form-control' %>
   </p>
   <p>
-    <%= f.submit =%>
+    <%= f.submit nil, class: 'btn btn-success' %>
   </p>
 <% end %>

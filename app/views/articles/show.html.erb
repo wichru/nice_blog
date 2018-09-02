@@ -1,16 +1,26 @@
-<%= link_to 'Back', articles_path %>
+<%= link_to 'Back', articles_path, class: 'btn btn-secondary' %>
 <p>
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4"><%= @article.title %></h1>
+      <p class="lead">
   <strong>Title</strong>
-  <%= @article.title %>
+  <%= @article.title %><%= @article.text %>
 </p>
-
-<p>
-  <strong>Text:</strong>
-  <%= @article.text %>
-</p>
+</div>
+</div>
 
 <h3>Add comment</h3>
 <%= render 'comments/form' %>
 
-<h2>Comments</h2>
+<table class='table table-hover'>
+  <thead>
+    <tr>
+      <td>Commenter</td>
+      <td>Comment</td>
+    </tr>
+  </thead>
+  <tbody>
 <%= render @article.comments %>
+</tbody>
+</table>
