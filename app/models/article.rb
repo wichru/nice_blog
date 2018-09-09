@@ -5,6 +5,7 @@ class Article < ApplicationRecord
   validates :text, presence: true, length: { maximum: 200 }
 
   has_many :comments, dependent: :destroy
+  has_many :likes, dependent: :destroy
 
   belongs_to :user
 

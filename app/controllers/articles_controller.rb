@@ -26,6 +26,7 @@ class ArticlesController < ApplicationController
 
   def show
     @comment = Comment.new(article: @article, commenter: session[:commenter])
+    @like = @article.likes.find_by(user: current_user)
   end
 
   def edit; end
