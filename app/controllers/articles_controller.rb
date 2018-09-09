@@ -6,6 +6,7 @@ class ArticlesController < ApplicationController
 
   def index
     @articles = Article.all.order(created_at: :desc)
+                      .includes(:user)
                       .paginate(page: params[:page], per_page: 15)
 
     @articles = @articles.where('? = any(tags)', params[:q]) if params[:q].present?
