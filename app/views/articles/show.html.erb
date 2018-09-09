@@ -20,7 +20,10 @@
           <% end %>
           (<%= @article.likes.count %>)
         </p>
-</div>
+        <% if @article.image.attached? %>
+        <%= image_tag url_for(@article.image), height: 300 %>
+        <% end %>
+      </div>
 </div>
 
 <h3>Add comment</h3>

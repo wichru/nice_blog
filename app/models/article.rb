@@ -9,6 +9,8 @@ class Article < ApplicationRecord
 
   belongs_to :user
 
+  has_one_attached :image
+
   def tags=(obj)
     if obj.is_a?(String)
       super sanitize_tags(obj)

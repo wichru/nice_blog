@@ -1,5 +1,5 @@
 class ArticlePolicy < ApplicationPolicy
-  def edit?
+  def update?
     record.user == user
   end
 end
