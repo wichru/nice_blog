@@ -30,9 +30,11 @@
           <%= fa_icon 'search' %>
           Show
         <% end %>
-        <%= link_to edit_article_path(article), class: 'btn btn-primary' do %>
-          <%= fa_icon 'edit' %>
-          Edit
+        <% if article.user == current_user %>
+          <%= link_to edit_article_path(article), class: 'btn btn-primary' do %>
+            <%= fa_icon 'edit' %>
+            Edit
+            <% end %>
         <% end %>
         <%= link_to article_path(article), class: 'btn btn-danger', method: :delete do %>
           <%= fa_icon 'trash' %>
