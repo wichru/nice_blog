@@ -6,6 +6,8 @@ class Article < ApplicationRecord
 
   has_many :comments, dependent: :destroy
 
+  belongs_to :user
+
   def tags=(obj)
     if obj.is_a?(String)
       super sanitize_tags(obj)

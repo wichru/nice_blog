@@ -4,6 +4,7 @@
     <div class="container">
       <h1 class="display-4"><%= @article.title %></h1>
       <p class="lead"><%= @article.text %>
+        <p>Author: <%= @article.user&.email %></p>
         <p><strong>Tags: </strong><%= @article.tags.join(', ') %></p>
 </div>
 </div>
