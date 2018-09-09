@@ -32,7 +32,7 @@
           <%= fa_icon 'search' %>
           Show
         <% end %>
-        <% if article.user == current_user %>
+        <% if policy(article).edit? %>
           <%= link_to edit_article_path(article), class: 'btn btn-primary' do %>
             <%= fa_icon 'edit' %>
             Edit

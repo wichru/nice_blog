@@ -43,6 +43,8 @@ gem 'font-awesome-rails'
 gem 'devise'
 gem 'config'
 gem 'bootstrap-will_paginate'
+gem "pundit"
+
 
 
 
