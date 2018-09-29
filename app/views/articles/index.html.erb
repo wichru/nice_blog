@@ -1,7 +1,7 @@
 <h1>Listing articles</h1>
 <p><%= link_to 'New article', new_article_path, class: 'btn btn-secondary'%></p>
 
-<%= form_tag articles_path, method: :get do %>
+<%= form_tag articles_path, method: :get, remote: true do %>
   <div class="input-group">
     <%= text_field_tag :q, "", value: params[:q], class: "form-control" %>
     <span class="input-group-btn">
@@ -10,41 +10,6 @@
     </span>
   </div>
 <% end %>
-
-<%= will_paginate @articles, renderer: WillPaginate::ActionView::Bootstrap4LinkRenderer %>
-
-<table class='table table-hover'>
-  <thead class='thead-dark'>
-  <tr>
-    <th>Id</th>
-    <th>Title</th>
-    <th>Actions</th>
-  </tr>
-  </thead>
-  <% @articles.each do |article| %>
-  <tbody>
-    <tr>
-      <td><%= article.id %></td>
-      <td><%= article.title %></td>
-
-      <td>
-        <%= link_to article_path(article), class: 'btn btn-success' do %>
-          <%= fa_icon 'search' %>
-          Show
-        <% end %>
-        <% if policy(article).edit? %>
-          <%= link_to edit_article_path(article), class: 'btn btn-primary' do %>
-            <%= fa_icon 'edit' %>
-            Edit
-            <% end %>
-        <% end %>
-        <%= link_to article_path(article), class: 'btn btn-danger', method: :delete do %>
-          <%= fa_icon 'trash' %>
-          Delete
-        <% end %>
-      </td>
-    </tr>
-  </tbody>
-  <% end %>
-</table>
-<%= will_paginate @articles, renderer: WillPaginate::ActionView::Bootstrap4LinkRenderer %>
+<div id='article_list'>
+  <%= render 'list' %>
+</div>

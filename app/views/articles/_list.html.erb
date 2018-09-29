@@ -1,0 +1,37 @@
+<%= will_paginate @articles, renderer: WillPaginate::ActionView::Bootstrap4LinkRenderer %>
+
+<table class='table table-hover'>
+  <thead class='thead-dark'>
+  <tr>
+    <th>Id</th>
+    <th>Title</th>
+    <th>Actions</th>
+  </tr>
+  </thead>
+  <% @articles.each do |article| %>
+  <tbody>
+    <tr>
+      <td><%= article.id %></td>
+      <td><%= article.title %></td>
+
+      <td>
+        <%= link_to article_path(article), class: 'btn btn-success' do %>
+          <%= fa_icon 'search' %>
+          Show
+        <% end %>
+        <% if policy(article).edit? %>
+          <%= link_to edit_article_path(article), class: 'btn btn-primary' do %>
+            <%= fa_icon 'edit' %>
+            Edit
+            <% end %>
+        <% end %>
+        <%= link_to article_path(article), class: 'btn btn-danger', method: :delete do %>
+          <%= fa_icon 'trash' %>
+          Delete
+        <% end %>
+      </td>
+    </tr>
+  </tbody>
+  <% end %>
+</table>
+<%= will_paginate @articles, renderer: WillPaginate::ActionView::Bootstrap4LinkRenderer %>
