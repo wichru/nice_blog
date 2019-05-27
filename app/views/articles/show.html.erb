@@ -20,6 +20,14 @@
           <%= image_tag url_for(@article.image), height: 300 %>
         </p>
         <% end %>
+        <dl class="dl-horizontal">
+          <dt>Files:</dt>
+          <dd>
+            <% @article.files.each do |file| %>
+              <%= link_to file.filename, file, target: :blank %>
+            <% end %>
+          </dd>
+        </dl>
       </div>
 </div>
 

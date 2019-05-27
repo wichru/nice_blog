@@ -10,6 +10,7 @@ class Article < ApplicationRecord
   belongs_to :user
 
   has_one_attached :image
+  has_many_attached :files
 
   def tags=(obj)
     if obj.is_a?(String)
